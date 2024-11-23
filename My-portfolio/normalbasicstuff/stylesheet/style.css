@@ -1,0 +1,281 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f5ff;
+  font-family: system-ui;
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pi-1 {
+  padding-inline: 5%;
+}
+
+.p-2 {
+  padding: 2rem 2%;
+}
+
+.section-header {
+  text-align: center;
+  color: #00796b; /* Teal color from logo */
+}
+
+/* HERO */
+.home {
+  position: relative;
+  height: 100dvh;
+}
+
+/* NAVIGATION */
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, white, transparent);
+  backdrop-filter: blur(50px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  transition: transform 300ms;
+}
+
+.navbar a {
+  color: #252525;
+}
+
+.menu-bar {
+  display: none;
+  border: 0;
+  background-color: transparent;
+}
+
+.menu-bar .line {
+  transition: transform 300ms, opacity 300ms;
+  transform-origin: center;
+}
+
+.menu-bar[aria-expanded="true"] .line {
+  transform: rotate(45deg);
+}
+
+.menu-bar[aria-expanded="true"] .middle {
+  opacity: 0;
+}
+
+.menu-bar[aria-expanded="true"] .bottom {
+  rotate: -45deg;
+}
+
+@media screen and (max-width: 48rem) {
+  .navbar ul {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #00796b; /* Teal background */
+    width: 30%;
+    height: 100vh;
+    transition: right 300ms;
+    box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    padding-top: 1em;
+    padding-left: 1em;
+  }
+
+  .menu-bar {
+    display: unset;
+  }
+
+  .navbar ul.opened {
+    right: 0;
+  }
+}
+
+/* HERO section */
+.hero {
+  text-align: center;
+} 
+
+.hero > * {
+  margin-top: 1em;
+}
+
+.hero h1 {
+  font-size: clamp(1.25rem, 3rem, 4rem);
+}
+
+.hero span {
+  color: #00796b; /* Teal color for accents */
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+}
+
+.btn-primary {
+  background-color: #00796b; /* Teal button background */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #005f56; /* Darker teal for hover effect */
+}
+
+.btn-secondary {
+  border: 1px solid #00796b; /* Teal border */
+  color: #00796b;
+}
+
+.btn-secondary:hover {
+  background-color: #00796b;
+  color: white;
+}
+
+@media screen and (min-width: 48rem) {
+  .hero {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    text-align: unset;
+  } 
+}
+
+/* ABOUT section */
+.about, .services {
+  background-color: #F6F4F4;
+}
+
+.about p {
+  text-align: center;
+  margin-top: 1em;
+  color: #333; /* Dark gray for text */
+}
+
+/* SERVICES section */
+.even-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
+.box {
+  margin-top: 2em;
+}
+
+.box > * {
+  margin-top: 1em;
+  text-align: center;
+  color: #333;
+}
+
+/* CALL TO ACTION */
+.call-to-action {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  height: 30vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/cta-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.call > * {
+  margin-top: 1em;
+  color: white;
+}
+
+.call p {
+  margin-bottom: 1em;
+  font-size: 0.75rem;
+}
+
+.call a {
+  border: 1px solid white;
+  border-radius: 100vmax;
+  transition: background-color 500ms, border 500ms;
+}
+
+.call a:hover {
+  background-color: #00796b;
+  border-color: #00796b;
+}
+
+/* PORTFOLIO section */
+.my-portfolio {
+  /* Portfolio styles */
+}
+
+.box:has(img) {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background-color: #333; /* Dark gray footer */
+  color: white;
+  padding: 1rem;
+}
+
+footer > * {
+  margin-top: 1em;
+}
+
+footer :is(p, a) {
+  font-size: 14px;
+  color: #ddd; /* Light gray text */
+}
+
+.social > *:not(:last-child) {
+  margin-right: 0.35rem;
+}
+
+footer a {
+  color: #ddd;
+}
+
+footer a:hover {
+  color: #00796b; /* Teal hover */
+  transform: scale(1.1);
+}
